@@ -7,23 +7,6 @@ from hand_recognition2 import Net
 import torch
 from torchvision import transforms
 
-
-class HandDetector:
-    def __init__(self):
-        self.hands = mp.solutions.hands.Hands(static_image_mode=False,
-                                          max_num_hands=2,
-                                          min_detection_confidence=0.5,
-                                          min_tracking_confidence=0.5)
-
-    def detect(self, image):
-        h, w = image.shape[:2]
-        imgRGB = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        landmarks = self.hands.process(imgRGB)
-        if landmarks.multi_hand_landmarks is None:
-            return np.array([])
-        lms = np.array([[[lm.x * w, lm.y * h, lm.z] for lm in landmark.landmark] for landmark in landmarks.multi_hand_landmarks])
-        return lms.astype(int)
-
 class faceDetection:
     def __init__(self):
         self.face_detector = cv2.CascadeClassifier()
@@ -40,6 +23,21 @@ class faceDetection:
         _, landmarks = self.landmark_detector.fit(cv2.cvtColor(image, cv2.COLOR_RGB2GRAY), detection)
         return np.concatenate(landmarks, axis=0).astype(np.int64) 
           
+class HandDetector:
+    def __init__(self):
+        self.hands = mp.solutions.hands.Hands(static_image_mode=False,
+                                          max_num_hands=2,
+                                          min_detection_confidence=0.5,
+                                          min_tracking_confidence=0.5)
+
+    def detect(self, image):
+        h, w = image.shape[:2]
+        imgRGB = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        landmarks = self.hands.process(imgRGB)
+        if landmarks.multi_hand_landmarks is None:
+            return np.array([])
+        lms = np.array([[[lm.x * w, lm.y * h, lm.z] for lm in landmark.landmark] for landmark in landmarks.multi_hand_landmarks])
+        return lms.astype(int)
 
 class googlyEye:
     def __init__(self, x, y, width, height):
