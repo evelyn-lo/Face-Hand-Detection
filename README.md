@@ -1,6 +1,6 @@
-# Face Hand Detection, Googly Eyes Filters, and Hand Gesture Recognition
+# Face Hand Detection, Googly Eyes Filters, and Hand Gesture Identification
 
-This project implements real-time googly eyes filter and hand gesture recognition using Python, OpenCV, MediaPipe, and deep learning techniques. Due to the extensive number of libraries, training models and images data used to train the hand gesture model, only the edited files called **project.py** related to the **googly eyes** filter and **hand gesture training** are included.
+This project implements real-time googly eyes filter and hand gesture identification using Python, OpenCV, MediaPipe, and deep learning techniques. Due to the extensive number of libraries, training models and images data used to train the hand gesture model, only the edited files called **project.py** related to the **googly eyes** filter and **hand gesture training** are included.
 
 ## **Project Overview**:
 
