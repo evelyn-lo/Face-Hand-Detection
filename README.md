@@ -15,7 +15,6 @@ This project implements real-time googly eyes filter and hand gesture identifica
   - Detection and landmarking for hands are carried out using **`mp.solutions.hands`** from MediaPipe within the **`HandDetector`** class.
 
 ## **Key Features**:
-- Real-time hand gesture and face detection with webcam.
-- Integration of deep learning models for accurate gesture recognition in live video feed.
+- Real-time face and gesture detection with webcam through integration of deep learning models for accurate gesture recognition in live video feed.
 - Utilizes computer vision libraries such as OpenCV and MediaPipe for hand and facial landmark extraction.
 - Object-Oriented Programming (OOP) to modularize face detection, hand detection, and filter rendering.
